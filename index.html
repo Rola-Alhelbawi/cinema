@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Courses Grid</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+     <div class="header">
+    <div class="auth-buttons">
+      <a href="#" class="login">Login</a>
+      <a href="#" class="register">Register</a>
+    </div>
+  </div>
+<div class="sidebar">
+    <h2>Menu</h2>
+    <a href="#">Dashboard</a>
+    <a href="#">Courses</a>
+    <a href="#">Sections</a>
+    <a href="#">Students</a>
+    <a href="#">Settings</a>
+  </div>
+
+  <div class="main-content">
+    <h1>Welcome to the Dashboard</h1>
+    <p>This is the main content area. Add your cards and carousel here.</p>
+  
+<div class="carousel-card">
+    <h2>Featured Items</h2>
+    <div class="carousel-track-container">
+      <button class="carousel-arrow left">&#10094;</button>
+      <div class="carousel-track">
+        <div class="carousel-item">Item 1</div>
+        <div class="carousel-item">Item 2</div>
+        <div class="carousel-item">Item 3</div>
+        <div class="carousel-item">Item 4</div>
+        <div class="carousel-item">Item 5</div>
+      </div>
+      <button class="carousel-arrow right">&#10095;</button>
+    </div>
+  </div>
+
+  <div class="grid-container">
+    <div class="card">
+      <a href="#" style="text-decoration:none;">
+        <h3>CS101</h3>
+        <h4>Introduction to Computer Science</h4>
+      </a>
+      <h5>John Doe</h5>
+      <div class="actions">
+        <button class="btn-edit" title="Edit">&#9998;</button>
+        <button class="btn-delete" title="Delete">&#128465;</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="#" style="text-decoration:none;">
+        <h3>MATH201</h3>
+        <h4>Calculus II</h4>
+      </a>
+      <h5>Jane Smith</h5>
+      <div class="actions">
+        <button class="btn-edit" title="Edit">&#9998;</button>
+        <button class="btn-delete" title="Delete">&#128465;</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="#" style="text-decoration:none;">
+        <h3>PHY301</h3>
+        <h4>Modern Physics</h4>
+      </a>
+      <h5>Albert Newton</h5>
+      <div class="actions">
+        <button class="btn-edit" title="Edit">&#9998;</button>
+        <button class="btn-delete" title="Delete">&#128465;</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="#" style="text-decoration:none;">
+        <h3>ENG105</h3>
+        <h4>English Literature</h4>
+      </a>
+      <h5>Emily Bronte</h5>
+      <div class="actions">
+        <button class="btn-edit" title="Edit">&#9998;</button>
+        <button class="btn-delete" title="Delete">&#128465;</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+  
+<script>
+  const track = document.querySelector('.carousel-track');
+  const items = Array.from(track.children);
+  const prevButton = document.querySelector('.carousel-arrow.left');
+  const nextButton = document.querySelector('.carousel-arrow.right');
+
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    const itemWidth = items[0].getBoundingClientRect().width;
+    const moveX = -currentIndex * itemWidth;
+    track.style.transform = `translateX(${moveX}px)`;
+  }
+
+  prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  });
+
+  nextButton.addEventListener('click', () => {
+    if (currentIndex < items.length - 1) {
+      currentIndex++;
+      updateCarousel();
+    }
+  });
+
+  window.addEventListener('resize', updateCarousel);
+
+  // Initialize carousel position on page load
+  updateCarousel();
+</script>
+
+</body>
+</html>
