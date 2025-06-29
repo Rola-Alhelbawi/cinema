@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      color: #4A5A6A;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .register-container {
+      background: white;
+      padding: 40px 50px;
+      border-radius: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 400px;
+      max-width: 100%;
+    }
+    .register-container h2 {
+      color: #4A5A6A;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    input[type="file"] {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 15px;
+      border: 1.5px solid #4A5A6A;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="password"]:focus,
+    input[type="file"]:focus {
+      outline: none;
+      border-color: #E73948;
+    }
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+      font-size: 0.9rem;
+    }
+    .checkbox-container input {
+      margin-right: 8px;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+    button {
+      width: 100%;
+      background-color: #4A5A6A;
+      color: white;
+      padding: 12px 0;
+      border: none;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #3b4554;
+    }
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+    .login-link a {
+      color: #E73948;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+    .social-buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-around;
+    }
+    .social-btn {
+      flex: 1;
+      margin: 0 5px;
+      padding: 10px 0;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      color: white;
+      border: none;
+      transition: background-color 0.3s ease;
+      font-size: 0.9rem;
+    }
+    .google {
+      background-color: #db4437;
+    }
+    .google:hover {
+      background-color: #c33d2f;
+    }
+    .facebook {
+      background-color: #3b5998;
+    }
+    .facebook:hover {
+      background-color: #334b87;
+    }
+    .apple {
+      background-color: #000000;
+    }
+    .apple:hover {
+      background-color: #222222;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-container">
+    <h2>Create Account</h2>
+    <form>
+      <label for="email">Email (or)</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" />
+
+      <label for="mobile">Mobile Number (or)</label>
+      <input type="tel" id="mobile" name="mobile" placeholder="+1 234 567 8900" />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Create a password" required />
+
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter password" required />
+
+      <label for="id-upload">Upload ID (if required)</label>
+      <input type="file" id="id-upload" name="id-upload" accept="image/*,application/pdf" />
+
+      <div class="checkbox-container">
+        <input type="checkbox" id="age-verify" name="age-verify" />
+        <label for="age-verify">Verify my age with API</label>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <div class="social-buttons">
+      <button class="social-btn google">Register with Google</button>
+      <button class="social-btn facebook">Register with Facebook</button>
+      <button class="social-btn apple">Register with Apple</button>
+    </div>
+
+    <div class="login-link">
+      Already have an account? <a href="#">Login here</a>
+    </div>
+  </div>
+
+</body>
+</html>
