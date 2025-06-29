@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Payment</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      color: #4A5A6A;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .payment-container {
+      background: white;
+      padding: 40px 50px;
+      border-radius: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 420px;
+      max-width: 100%;
+    }
+    .payment-container h2 {
+      color: #4A5A6A;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 15px;
+      border: 1.5px solid #4A5A6A;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    select:focus {
+      outline: none;
+      border-color: #E73948;
+    }
+    button {
+      width: 100%;
+      background-color: #4A5A6A;
+      color: white;
+      padding: 12px 0;
+      border: none;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #3b4554;
+    }
+    .payment-methods {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+    .payment-method {
+      flex: 1;
+      margin: 0 5px;
+      padding: 12px;
+      border-radius: 15px;
+      text-align: center;
+      cursor: pointer;
+      border: 1.5px solid #4A5A6A;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+      user-select: none;
+    }
+    .payment-method.selected {
+      background-color: #E73948;
+      color: white;
+      border-color: #E73948;
+    }
+    .payment-method:hover {
+      border-color: #E73948;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="payment-container">
+    <h2>Payment Details</h2>
+
+    <div class="payment-methods">
+      <div class="payment-method selected" data-method="card">Credit/Debit Card</div>
+      <div class="payment-method" data-method="paypal">PayPal</div>
+      <div class="payment-method" data-method="bank">Bank Transfer</div>
+    </div>
+
+    <form id="paymentForm">
+      <label for="cardName">Name on Card</label>
+      <input type="text" id="cardName" name="cardName" placeholder="John Doe" required />
+
+      <label for="cardNumber">Card Number</label>
+      <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required />
+
+      <label for="expiry">Expiry Date</label>
+      <input type="text" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5" required />
+
+      <label for="cvv">CVV</label>
+      <input type="password" id="cvv" name="cvv" placeholder="123" maxlength="4" required />
+
+      <button type="submit">Pay Now</button>
+    </form>
+  </div>
+
+  <script>
+    const methods = document.querySelectorAll('.payment-method');
+    const form = document.getElementById('paymentForm');
+
+    methods.forEach(method => {
+      method.addEventListener('click', () => {
+        methods.forEach(m => m.classList.remove('selected'));
+        method.classList.add('selected');
+        // You can add logic here to show/hide different form fields per payment method
+      });
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Payment submitted! (This is just a demo)');
+    });
+  </script>
+
+</body>
+</html>
